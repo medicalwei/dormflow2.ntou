@@ -4,7 +4,7 @@ include_once "./lib/simple_html_dom.php";
 function dormflowJSONize($source, $timestamp)
 {
 	$html = file_get_html($source);
-	if (!$html) return "{\"lastupdate\":0,\"flowdata\":{}}";
+	if (!$html) return '{"lastupdate":0,"flowdata":{}}';
 
 	$jsonKeys = array("rank", "ipaddr", "fin", "fout", "fsum", "pkgin", "pkgout", "pkgsum", "banstat");
 	$content = "";

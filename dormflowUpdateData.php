@@ -52,5 +52,9 @@ function updateData($time, $updateBannedUsers)
 	return true;
 }
 
-updateData(time(), true);
+updateBannedUsers()
+{
+}
+
 updateData(time()-86400, false);
+updateData(time()+86400, false);
