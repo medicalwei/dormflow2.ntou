@@ -13,7 +13,7 @@ function getFormattedDate($time)
 	return array($y, $m, $d);
 }
 
-function updateData($time, $updateBannedUsers)
+function updateData($time)
 {
 	// http://dormflow.ntou.edu.tw/yyyy/mm/dd/
 	$date = getFormattedDate($time);
@@ -42,19 +42,13 @@ function updateData($time, $updateBannedUsers)
 	fwrite($fileWriter, dormflowJSONize($uri."%b1J%aa%d9sortbyflowsum.html", $remoteLastUpdate));
 	fclose($fileWriter);
 
-	if($updateBannedUsers){
-		if(!$bannedUsersFileWriter = fopen("jsonData/bannedUsers.json", "w"))
-			die("cannot write parsing data for banned users.");
-		fwrite($bannedUsersFileWriter, banlistJSONize("http://dormflow.ntou.edu.tw/banip.html", $remoteLastUpdate));
-		fclose($bannedUsersFileWriter);
-	}
-
 	return true;
 }
 
-updateBannedUsers()
+function updateBannedUsers()
 {
+	if(!$bannedUsersFileWriter = fopen("jsonData/bannedUsers.json", "w"))
+		die("cannot write parsing data for banned users.");
+	fwrite($bannedUsersFileWriter, banlistJSONize("http://dormflow.ntou.edu.tw/banip.html", time()));
+	fclose($bannedUsersFileWriter);
 }
-
-updateData(time()-86400, false);
-updateData(time()+86400, false);
