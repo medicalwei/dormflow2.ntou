@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/1999/xhtml">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<title>dormflow2.ntou</title>
+	
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" /> 
+
+	<!--[if lt IE 9]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script><![endif]-->
+	<script src="./lib/jquery.js" type="text/javascript"></script>
+	<script src="./lib/jquery.timers.js" type="text/javascript"></script>
+	<script src="./lib/jquery.cookie.js" type="text/javascript"></script>
+	<script src="./lib/raphael.js" type="text/javascript"></script>
+	<script src="./lib/g.raphael.js" type="text/javascript"></script>
+	<script src="./lib/g.bar.js" type="text/javascript"></script>
+	<script src="./lib/libdormflow.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="pageHeader">
+		<ul id="language">
+			<li><a href="index.zh-tw.html">中文</a></li>
+			<li><a href="index.ja.html">日本語</a></li>
+		</ul>
+		<div id="updateStatus">
+			<p>last update: <span id="lastUpdate"></span>.</p><p><span id="updateCountdown"></span> before next update.</p>
+		</div>
+		<h1><em>dormflow2</em>.ntou</h1>
+		<h2></h2>
+	</div>
+	<div id="mainMenu">
+		<ul>
+			<li class="yourQuota"><a href="javascript:displayYourQuota()">your quota</a></li>
+			<li class="statistics"><a href="javascript:displayStatistics()">statistics</a></li>
+			<li class="usersList"><a href="javascript:displayUsersList()">users list</a></li>
+			<li class="bannedUsers"><a href="javascript:displayBannedUsers()">banned users</a></li>
+			<li class="preferences"><a href="javascript:displayPreferences()">preferences</a></li>
+		</ul>
+	</div>
+	<div id="pageContent">
+		<noscript><div id="javascriptWarning">javascript?</div></noscript>
+		<div id="yourQuota">
+			<dl id="ipAddr">
+				<dt>ip address</dt>
+				<dd id="ipAddrContext"><em>loading…</em></dd>
+			</dl>
+			<dl id="quotaUsed">
+				<dt>quota used</dt>
+				<dd id="totalQuotaContext"><em>loading…</em></dd>
+			</dl>
+			<dl id="quotaDetailed">
+				<dt>upload</dt>
+				<dd id="uploadQuotaContext">loading…</dd>
+				<dt>download</dt>
+				<dd id="downloadQuotaContext">loading…</dd>
+				<dt>quota remaining</dt>
+				<dd id="remainingQuotaContext">loading…</dd>
+			</dl>
+		</div>
+		<div id="statistics">
+			<dl id="statisticsIPAddr">
+				<dt>ip address</dt>
+				<dd id="statisticsIPAddrContext"><em>loading…</em></dd>
+			</dl>
+			<ul id="statisticsLegends">
+				<li class="upload"><span></span> upload</li>
+				<li class="download"><span></span> download</li>
+				<li class="nodata"><span></span> no data</li>
+			</ul>
+			<div id="statisticsCanvas"></div>
+		</div>
+		<div id="usersList">
+			<ul id="usersListContext">
+			</ul>
+		</div>
+		<div id="bannedUsers">
+			<ul id="bannedUsersContext">
+			</ul>
+		</div>
+		<div id="preferences">
+			<form id="preferencesForm">
+
+			<ul>
+				<li id="preferencesIPDetection">
+					<input type="checkbox" id="prefIPDetection" name="prefIPDetection" checked="true" />
+					<label for="prefIPDetection">ip detection</label>
+				</li>
+				<li id="preferencesNoIPDetection">
+					display ip for: 
+					140.121.<input type="text" id="prefIPSet_1" name="prefIPSet_1" value="" maxlength="3" size="3"/>.<input type="text" id="prefIPSet_2" name="prefIPSet_2" value="" maxlength="3" size="3"/>
+				</li>
+				<li id="preferencesStatisticsHistory">
+					statistics history: 
+					<input type="text" id="prefStatsHistory" name="prefStatsHistory" value="6" maxlength="2" size="2"/> day(s) ago.
+				</li>
+				<li id="preferencesApply"><input type="button" value="apply" onclick="setPreferences()"/></li>
+			</form>
+		</div>
+	</div>
+	<div id="pageFooter">
+		<p>dormflow2.ntou — medicalwei. powered by jQuery, PHP, gRaphaël, and some jQuery plugins. <a href="b97570013.ppt">ppt</a></p>
+	</div>
+</body>
+</html>

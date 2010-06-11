@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/1999/xhtml">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<title>dormflow2.ntou</title>
+	
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" /> 
+
+	<script type="text/javascript">document.LANG="zh-tw";</script>
+	<!--[if lt IE 9]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script><![endif]-->
+	<script src="./lib/jquery.js" type="text/javascript"></script>
+	<script src="./lib/jquery.timers.js" type="text/javascript"></script>
+	<script src="./lib/jquery.cookie.js" type="text/javascript"></script>
+	<script src="./lib/raphael.js" type="text/javascript"></script>
+	<script src="./lib/g.raphael.js" type="text/javascript"></script>
+	<script src="./lib/g.bar.js" type="text/javascript"></script>
+	<script src="./lib/libdormflow.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="pageHeader">
+		<ul id="language">
+			<li><a href="index.html">English</a></li>
+			<li><a href="index.ja.html">日本語</a></li>
+		</ul>
+		<div id="updateStatus">
+			<p>最後更新：<span id="lastUpdate"></span></p><p>更新倒數：<span id="updateCountdown"></span></p>
+		</div>
+		<h1><em>dormflow2</em>.ntou</h1>
+		<h2></h2>
+	</div>
+	<div id="mainMenu">
+		<ul>
+			<li class="yourQuota"><a href="javascript:displayYourQuota()">您的流量</a></li>
+			<li class="statistics"><a href="javascript:displayStatistics()">統計圖表</a></li>
+			<li class="usersList"><a href="javascript:displayUsersList()">用戶清單</a></li>
+			<li class="bannedUsers"><a href="javascript:displayBannedUsers()">鎖卡名單</a></li>
+			<li class="preferences"><a href="javascript:displayPreferences()">偏好設定</a></li>
+		</ul>
+	</div>
+	<div id="pageContent">
+		<noscript><div id="javascriptWarning">javascript?</div></noscript>
+		<div id="yourQuota">
+			<dl id="ipAddr">
+				<dt>ip 位置</dt>
+				<dd id="ipAddrContext"><em>讀取中…</em></dd>
+			</dl>
+			<dl id="quotaUsed">
+				<dt>已使用流量</dt>
+				<dd id="totalQuotaContext"><em>讀取中…</em></dd>
+			</dl>
+			<dl id="quotaDetailed">
+				<dt>上傳</dt>
+				<dd id="uploadQuotaContext">讀取中…</dd>
+				<dt>下載</dt>
+				<dd id="downloadQuotaContext">讀取中…</dd>
+				<dt>剩餘流量</dt>
+				<dd id="remainingQuotaContext">讀取中…</dd>
+			</dl>
+		</div>
+		<div id="statistics">
+			<dl id="statisticsIPAddr">
+				<dt>ip 位置</dt>
+				<dd id="statisticsIPAddrContext"><em>讀取中…</em></dd>
+			</dl>
+			<ul id="statisticsLegends">
+				<li class="upload"><span></span> 上傳</li>
+				<li class="download"><span></span> 下載</li>
+				<li class="nodata"><span></span> 無資料</li>
+			</ul>
+			<div id="statisticsCanvas"></div>
+		</div>
+		<div id="usersList">
+			<ul id="usersListContext">
+			</ul>
+		</div>
+		<div id="bannedUsers">
+			<ul id="bannedUsersContext">
+			</ul>
+		</div>
+		<div id="preferences">
+			<form id="preferencesForm">
+
+			<ul>
+				<li id="preferencesIPDetection">
+					<input type="checkbox" id="prefIPDetection" name="prefIPDetection" checked="true" />
+					<label for="prefIPDetection">ip 自動偵測</label>
+				</li>
+				<li id="preferencesNoIPDetection">
+					顯示 ip： 
+					140.121.<input type="text" id="prefIPSet_1" name="prefIPSet_1" value="" maxlength="3" size="3"/>.<input type="text" id="prefIPSet_2" name="prefIPSet_2" value="" maxlength="3" size="3"/>
+				</li>
+				<li id="preferencesStatisticsHistory">
+					歷史紀錄：
+					<input type="text" id="prefStatsHistory" name="prefStatsHistory" value="6" maxlength="2" size="2"/> 天前 
+				</li>
+				<li id="preferencesApply"><input type="button" value="套用" onclick="setPreferences()"/></li>
+			</form>
+		</div>
+	</div>
+	<div id="pageFooter">
+		<p>dormflow2.ntou — medicalwei. powered by jQuery, PHP, gRaphaël, and some jQuery plugins. <a href="b97570013.ppt">ppt</a></p>
+	</div>
+</body>
+</html>

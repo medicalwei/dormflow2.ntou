@@ -1,0 +1,310 @@
+body{
+	margin: 0 auto;
+	padding: 0;
+	max-width: 960px;
+	color: #ccc;
+	background :#112;
+	font-family: "Museo Sans", sans;
+	overflow-y: scroll;
+}
+
+#pageHeader{
+	padding: 30px 30px 0;
+	border-radius: 0 0 30px 30px;
+	-webkit-border-radius: 0 0 30px 30px;
+	-moz-border-radius: 0 0 30px 30px;
+	-o-border-radius: 0 0 30px 30px;
+	background: #223;
+}
+
+h1, h2{
+	font-weight: 500;
+	margin: 0;
+	font-size: 30px;
+	line-height: 1.5em;
+	color :#ccc;
+	text-shadow: #001 0 1.5px 0;
+	display:inline;
+}
+
+h1{
+	color: #999;
+}
+
+h1 em{
+	font-size: 1.2em;
+	color: #ccc;
+	font-style: normal;
+}
+
+#pageHeader h2:before{
+	content: "/";
+	font-size: 0.7em;
+	margin-right: 0.3em;
+}
+
+#pageContent, #pageFooter{
+	padding: 0 30px;
+}
+
+@font-face{
+	font-family: "Museo Sans";
+	font-weight: 500;
+	src: url("./lib/museosans.otf");
+}
+
+#quotaUsed dt,
+#quotaUsed dd,
+#quotaDetailed dt,
+#quotaDetailed dd{
+	margin: 0;
+	padding: 0;
+}
+
+#quotaUsed em,#quotaDetailed em, #ipAddr em, #statisticsIPAddr em{
+	font-size: 2em;
+	font-style: normal;
+}
+
+#quotaDetailed{
+	height:240px;
+	float:left;
+	width: 200px;
+}
+
+#quotaDetailed dt{
+	margin-top: 10px;
+	height: 20px;
+}
+
+#quotaUsed dd, #quotaDetailed dd{
+	height: 50px;
+	text-align: right;
+}
+
+#quotaUsed dd{
+	float:left;
+	height: 240px;
+	line-height: 240px;
+	font-size: 4em;
+	width: 670px;
+	color: #9c9;
+	text-shadow: #030 0 2px 0;
+	margin-right: 20px;
+}
+
+#ipAddr dt, #ipAddr dd,
+#statisticsIPAddr dt, #statisticsIPAddr dd{
+	display: inline;
+}
+
+#quotaUsed .warning{
+	color: #cc9;
+	text-shadow: #330 0 3px 0;
+}
+
+#quotaUsed .overflow{
+	color: #c99;
+	text-shadow: #300 0 3px 0;
+}
+
+#yourQuota, #statistics, #usersList, #bannedUsers, #preferences{
+	display: none;
+}
+
+#mainMenu{
+	clear:left;
+	height: 30px;
+	border-bottom: 2px solid #334;
+	margin: 20px;
+	padding: 0;
+}
+
+#mainMenu ul{
+	padding: 0;
+}
+
+#mainMenu li{
+	display: block;
+	list-style: none;
+	float: left;
+	margin: 0 0 0 50px;
+}
+
+#mainMenu li a{
+	display: block;
+	width: auto;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-o-border-radius: 5px 5px 0 0;
+	padding: 0 20px;
+	color: #ccc;
+	text-decoration: none;
+}
+
+#mainMenu li a:hover{
+	background: #445;
+}
+
+#mainMenu li.current a{
+	background: #334;
+}
+
+#usersListContext em, #bannedUsersContext em{
+	font-size: 1.5em;
+	font-style: normal;
+}
+
+#usersListContext, #bannedUsersContext{
+	padding: 0;
+}
+
+#usersListContext>li, #bannedUsersContext>li{
+	display: block;
+	padding: 10px;
+	margin: 5px;
+	border: 2px solid #334;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	font-size: 0.8em;
+	width: 140px;
+	height: 140px;
+	float: left;
+}
+
+#usersListContext>li.overflow,
+#bannedUsersContext>li.overflow{
+	background: #211;
+	border: 2px solid #433;
+	color: #c99;
+}
+
+#usersListContext>li.warning,
+#bannedUsersContext>li.warning{
+	background: #332;
+	border: 2px solid #443;
+	color: #cc9;
+}
+
+#usersListContext dl, #bannedUsersContext dl{
+	padding: 0;
+	margin: 0;
+}
+
+#usersListContext dt, #bannedUsersContext dt{
+	font-size: 1.2em;
+}
+
+#usersListContext dt, #usersListContext dd,
+#bannedUsersContext dt, #bannedUsersContext dd{
+	display: block;
+	margin: 0;
+	line-height: 2em;
+}
+
+#pageFooter{
+	clear: both;
+}
+
+#updateStatus {
+	float: right;
+	text-align: right;
+}
+
+#updateStatus p{
+	display: block;
+	color: #669;
+	margin: 0;
+}
+#statisticsCanvas{
+	border-bottom: 2px solid #334;
+	width: 900px;
+	height: 400px;
+	clear: both;
+}
+#statisticsIPAddr{
+	float: left;
+}
+#statisticsIPAddr, #statisticsLegends{
+	margin-top: 0;
+}
+#statisticsLegends{
+	padding: 0;
+	text-align: right;
+	border: 2px solid #223;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	padding: 10px;
+	float: right;
+}
+#statisticsLegends li{
+	list-style: none;
+	display: inline;
+	margin: 0 1em;
+}
+#statisticsLegends li span{
+	display: inline-block;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+}
+#statisticsLegends li.download span{
+	background: #2f69bf;
+}
+#statisticsLegends li.upload span{
+	background: #a2bf2f;
+}
+#statisticsLegends li.nodata span{
+	background: #334;
+}
+
+#mainMenu li.preferences{
+	display: none;
+}
+
+#preferences ul{
+	padding: 0;
+}
+#preferences ul li{
+	list-style: none;
+}
+
+#language a
+{
+	color: #aaa;
+	text-decoration: none;
+}
+#language a:hover
+{
+	color: #999;
+}
+#language
+{
+	padding: 0;
+	margin: 0;
+	text-align: right;
+}
+#language li
+{
+	list-style:none;
+	display: inline;
+}
+#pageFooter a
+{
+	color: #999;
+}
+#pageFooter a:hover
+{
+	color: #666;
+}
