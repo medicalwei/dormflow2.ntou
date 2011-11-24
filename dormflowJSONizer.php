@@ -6,47 +6,36 @@ function dormflowJSONize($source, $timestamp)
 	$html = file_get_html($source);
 	if (!$html) return '{"lastupdate":0,"flowdata":{}}';
 
-	$jsonKeys = array("rank", "ipaddr", "fin", "fout", "fsum", "pkgin", "pkgout", "pkgsum", "banstat");
+	$jsonHeadKeys = array("rank", "ipaddr");
+	$jsonKeys = array("fsum", "fin", "fout");
 	$content = "";
 
 	$lines = array();
 
-	foreach($html->find('tr') as $user)
+	foreach($html->find('table[id=flow] tbody tr') as $user)
 	{
-		
 		$jsonKey = '""';
 		$line = array();
-		foreach($user->find('td') as $infoKey => $infoValue)
-		{
-			$jsonInfoKey = $jsonKeys[$infoKey];
-			// ignore top 1 and bottom 2 lines
-			if(	$infoValue->plaintext == "NO" ||
-				$infoValue->plaintext == "")
-				break;
 
-			// ignore pkg information and banstat
-			if( 	$jsonInfoKey == "pkgin" || 
-				$jsonInfoKey == "pkgout" || 
-				$jsonInfoKey == "pkgsum" ||
-				$jsonInfoKey == "banstat")
-				continue;
-			
-			// put ipaddr into json key
+		foreach($user->find('th') as $infoKey => $infoValue)
+		{
+			$jsonInfoKey = $jsonHeadKeys[$infoKey];
+
 			if( 	$jsonInfoKey == "ipaddr")
 			{
 				$jsonKey = trim("$infoValue->plaintext"); 
 				continue;
 			}
 
-			if( 	$jsonInfoKey == "fin" || 
-				$jsonInfoKey == "fout" || 
-				$jsonInfoKey == "fsum"){
-				array_push($line, "\"$jsonInfoKey\":".sprintf("%.2f", $infoValue->plaintext));
-				continue;
-			}
-
 			array_push($line, "\"$jsonInfoKey\":$infoValue->plaintext");
-			
+		}
+
+		foreach($user->find('td') as $infoKey => $infoValue)
+		{
+			$jsonInfoKey = $jsonKeys[$infoKey];
+
+			array_push($line, "\"$jsonInfoKey\":".sprintf("%.2f", $infoValue->plaintext));
+			continue;
 		}
 
 		if($jsonKey == '""') continue;
